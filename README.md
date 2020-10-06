@@ -23,6 +23,8 @@
 - [x] Servo for locking mechanism
 - [ ] Locking mechanism
 - [ ] Speaker
+- [ ] RFID Reader
+
 
 ### Total cost so far
 - $40 for [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
