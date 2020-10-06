@@ -25,7 +25,7 @@
 - [ ] Speaker
 
 ### Total cost so far
-- $40 for Raspberry Pi 3
-- $55 for Door
-- $10 Servos
+- $40 for [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+- $55 for [The Door](https://www.lowes.com/pd/ReliaBilt-White-2-Panel-Square-Hollow-Core-Molded-Composite-Slab-Door-Common-32-in-x-80-in-Actual-32-in-x-80-in/1000221811)
+- $15 for [Servo](https://www.parallax.com/product/900-00005)
 
