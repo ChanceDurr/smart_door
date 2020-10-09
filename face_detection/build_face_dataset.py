@@ -1,3 +1,5 @@
+#!usr/bin/env python3.6
+
 from imutils.video import VideoStream
 import argparse
 import imutils
@@ -8,8 +10,8 @@ import os
 ap = argparse.ArgumentParser()
 ap.add_argument("-c", "--cascade", required=True, help="path to where the face cascade resides")
 ap.add_argument("-o", "--output", required=True, help="path to the output directory")
+ap.add_argument("-i", "--id", required=True, help="id of person that is being added")
 args = vars(ap.parse_args())
-
 detector = cv2.CascadeClassifier(args['cascade'])
 
 # initilize the video stream and allow the camera sensor to warm up,
@@ -20,7 +22,14 @@ print("[INFO] starting video stream...")
 vs = VideoStream(src=0).start()
 #vs = VideoStream(usePiCamera=True).start()
 time.sleep(2)
-total = 0
+
+# Check if pictures already exist
+if os.listdir(args["output"]):
+    total = int(os.listdir(args["output"])[-1].split(".")[1].lstrip("0")) + 1
+else:
+    total = 0
+
+print(os.listdir(args["output"]))
 
 # loop over the frames from the video stream
 while True:
@@ -48,7 +57,7 @@ while True:
     # if the k key was pressed, write the original frame to disk
     # so we can later process it and use it for face recognition
     if key == ord("k"):
-        p = os.path.sep.join([args["output"], f"{str(total).zfill(5)}.png"])
+        p = os.path.sep.join([args["output"],  f"{args['id']}.{str(total).zfill(5)}.png"])
         cv2.imwrite(p, orig)
         total +=1
 
