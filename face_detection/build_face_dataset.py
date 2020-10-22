@@ -1,5 +1,3 @@
-#!usr/bin/env python3.6
-
 from imutils.video import VideoStream
 import argparse
 import imutils
@@ -19,8 +17,8 @@ detector = cv2.CascadeClassifier(args['cascade'])
 print("[INFO] starting video stream...")
 
 # switch this when running on rpi
-vs = VideoStream(src=0).start()
-#vs = VideoStream(usePiCamera=True).start()
+#vs = VideoStream(src=0).start()
+vs = VideoStream(usePiCamera=True).start()
 time.sleep(2)
 
 # Check if pictures already exist
@@ -28,8 +26,6 @@ if os.listdir(args["output"]):
     total = int(os.listdir(args["output"])[-1].split(".")[1].lstrip("0")) + 1
 else:
     total = 0
-
-print(os.listdir(args["output"]))
 
 # loop over the frames from the video stream
 while True:
